@@ -1,0 +1,8 @@
+.env
+*.db
+*.sqlite3
+trading_bot.db
+__pycache__/
+venv/
+bot.log
+

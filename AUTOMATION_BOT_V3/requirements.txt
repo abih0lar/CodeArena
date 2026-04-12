@@ -1,0 +1,9 @@
+ccxt>=4.2.0                  # Cryptocurrency exchange API library
+pandas>=2.1.0                # Data manipulation for OHLCV
+ta>=0.11.0                   # Technical Analysis library (MACD, RSI, BB)
+numpy>=1.24.0                # Numerical computing and arrays
+plotly>=5.18.0               # Advanced charting for the dashboard
+streamlit>=1.31.0            # Web framework for the dashboard
+google-generativeai>=0.5.0   # Gemini AI SDK for the Scholar agent
+python-dotenv>=1.0.0         # Loading environment variables from .env
+requests>=2.28.0             # HTTP requests for Telegram and Binance REST
