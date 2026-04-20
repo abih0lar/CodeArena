@@ -1,3 +1,7 @@
+"""
+main.py — Headless Trading Bot Entry Point
+"""
+
 import logging
 import signal
 import sys
@@ -9,7 +13,10 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
-    handlers=[logging.StreamHandler(sys.stdout), logging.FileHandler("bot.log", encoding="utf-8")],
+    handlers=[
+        logging.StreamHandler(sys.stdout), 
+        logging.FileHandler("bot.log", encoding="utf-8")
+    ],
 )
 log = logging.getLogger("__main__")
 
@@ -17,7 +24,8 @@ _orchestrator: Orchestrator | None = None
 
 def _shutdown(signum, frame):
     log.info("Shutdown signal received — stopping orchestrator...")
-    if _orchestrator is not None: _orchestrator.stop()
+    if _orchestrator is not None: 
+        _orchestrator.stop()
     log.info("Bot stopped cleanly. Goodbye.")
     sys.exit(0)
 
@@ -26,8 +34,9 @@ signal.signal(signal.SIGTERM, _shutdown)
 
 def main():
     global _orchestrator
+    
     log.info("=" * 60)
-    log.info(" H1 Wick-Rejection Agentic Trading Bot")
+    log.info(" Institutional H1 Trading System (V3.1 Sniper Module)")
     log.info(f" Started at {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')} UTC")
     log.info("=" * 60)
     
@@ -42,8 +51,10 @@ def main():
     log.info("-" * 60)
     
     while True:
-        try: time.sleep(1)
-        except Exception as e: log.error("Heartbeat error: %s", e)
+        try: 
+            time.sleep(1)
+        except Exception as e: 
+            log.error("Heartbeat error: %s", e)
 
 if __name__ == "__main__":
     main()
